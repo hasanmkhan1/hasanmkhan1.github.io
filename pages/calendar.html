@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.css' rel='stylesheet' />
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.js'></script>
+<script src="../scripts/login.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/nav.css">
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialDate: '2022-05-01',
+      editable: true,
+      selectable: true,
+      businessHours: true,
+      dayMaxEvents: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'UI coursework',
+          start: '2022-05-11',
+          url: 'https://blackboard.le.ac.uk/webapps/blackboard/content/listContent.jsp?course_id=_42562_1&content_id=_2948200_1&mode=reset'
+        },
+        {
+          title: 'Football tournament',
+          start: '2022-05-07',
+          end: '2022-03-10'
+        },
+        {
+          title: ' engineering project Meeting',
+          start: '2022-05-12T10:30:00',
+          end: '2022-05-12T12:30:00'
+        },
+        {
+          title: 'Date',
+          start: '2022-05-22T12:00:00'
+        }
+      ],  eventClick: function(info) {
+    info.jsEvent.preventDefault(); // don't let the browser navigate
+
+    if (info.event.url) {
+       alert(info.event.url);
+      //window.open(info.event.url);
+    }
+  }
+    });
+
+    calendar.render();
+  });
+
+</script>
+<style>
+
+  body {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+
+  #calendar {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: right;
+  height: 100px; 
+}
+</style>
+</head>
+<title> Calendar</title>
+<body>
+<div class="topnav">
+	<a class="active" href="dashboard.html">Dashboard</a>
+	<a href="tasks.html">Tasks</a>
+		<a href="profile.html">Profile</a>
+	<a href="calendar.html">Calendar</a>
+	<a href="help.html">Help</a>
+
+	
+</div>
+  <div id='calendar'>
+</div>
+<div class="right">
+<input type="button" onclick="location.href='addEvent.html'" value="Add new event" />
+<br>
+</br>
+<input type="button" onclick="location.href='editEvent.html'" value="Edit event" />
+</div>
+</body>
+
+</html>

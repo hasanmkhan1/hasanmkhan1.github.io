@@ -1,0 +1,52 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Add event </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../css/nav.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="../scripts/login.js"></script>
+</head>
+
+<body>
+<div class="topnav">
+	<a class="active" href="dashboard.html">Dashboard</a>
+	<a href="tasks.html">Tasks</a>
+	<a href="calendar.html">Calendar</a>
+	<a href="profile.html">Profile</a>
+	<a href="help.html">Help</a>
+
+	
+</div>
+<div class="jumbotron text-center">
+  <h1>Add calendar events</h1>
+</div>
+  
+<center>
+<h2>Add event</h2>
+<form id="form_id" method="post" name="myform">   <div class="input-group">
+	<input type="text" class="form-control" name="Event name" placeholder="Event" id="name"/>
+	<br>
+	</br>
+	<input type="date" class="form-control" name="date" placeholder="date" id="date"/>
+	<br>
+	<br/>
+	<input type="text" class="form-control" name="description" placeholder="description" id="description"/>
+	<br>
+	<br/>
+	<input type="time" class="form-control" name="time" placeholder="time" id="time"/>
+	<br>
+	<br/>
+	<div class="btn-group">
+	<input type="button" value="Add event" id="submit" onclick="location.href='calendar.html'"/>
+	</div>
+	
+
+
+</form>
+
+</body>
+</html>

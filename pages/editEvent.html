@@ -1,0 +1,83 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+  <title> edit event </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="../scripts/login.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/nav.css">
+</head>
+
+<body>
+<div class="topnav">
+	<a class="active" href="dashboard.html">Dashboard</a>
+	<a href="tasks.html">Tasks</a>
+	<a href="profile.html">Profile</a>
+	<a href="calendar.html">Calendar</a>
+	<a href="help.html">Help</a>
+
+	
+</div>
+<div class="jumbotron text-center">
+  <h1>Edit calendar events</h1>
+</div>
+  
+<center>
+<h2>Edit event</h2>
+<form id="form_id" method="post" name="myform">   <div class="input-group">
+     	<select id="event" class="form-control" onchange="func()">
+            <option value="Choose One">Choose Task</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Buy groceries">Buy groceries</option>
+     	</select>
+  
+	<input type="date" class="form-control" name="date" placeholder="date" id="date"/>
+	<br>
+	<br/>
+	<input type="text" class="form-control" name="description" placeholder="description" id="description"/>
+	<br>
+	<br/>
+	<input type="time" class="form-control" name="time" placeholder="time" id="time"/>
+	<br>
+	<br/>
+	<div class="btn-group">
+	<br>
+	<br/>
+	<input type="button" value="Confirm" class="form-control" id="submit" onclick="location.href='calendar.html'"/>
+	</div>
+
+
+</form>
+
+</body>
+
+   <script>
+    	function func(){
+      	var dropdown = document.getElementById("event");
+        	var selection = dropdown.value;
+		var date = document.getElementById("date");
+		var description = document.getElementById("description");
+		var time = document.getElementById("time");
+      	console.log(selection);
+	  if (selection=="Shopping"){	
+        	date.setAttribute("value","2022-05-22");
+		description.setAttribute("value","buy purse");
+		time.setAttribute("value","17:00");
+	  }
+	  else{
+	  	date.setAttribute("value","2022-05-24");
+		description.setAttribute("value","buy chicken");
+		time.setAttribute("value","20:00");
+	  }
+	  
+	  
+      }
+    </script>
+</html>
+
+
+
+

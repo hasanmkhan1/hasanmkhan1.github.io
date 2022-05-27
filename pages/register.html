@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ 	<title>Register</title>
+	<meta charset="utf-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ </head>
+
+ <body>
+ 	<div class="jumbotron text-center">
+ 		<h1>Registration</h1>
+ 		<p>Thank you for joining!</p>
+ 	</div>
+ 	<div class="container">
+ 		<form class="form-register" method="post" id="form-register">
+ 			<div class="form-group">
+ 			<input type="email" class="form-control" placeholder="Email address" name="user_email" id="user_email" />
+ 			</div>
+ 			<div class="form-group">
+ 				<input type="password" class="form-control" placeholder="Password" name="password" id="password" />
+ 			</div>
+ 			<div class="form-group">
+ 				<input type="password" class="form-control" placeholder="Repeat password" name="password_repeat" id="password_repeat" />
+ 			</div>
+ 			<div class="form-group">
+ 				<input type="text" class="form-control" placeholder="Enter a number here?" name="number" id="number" />
+ 			</div>
+ 			<div class="form-group">
+ 				<input type="button" onclick="location.href='login.html'" value="Register" class="btn btn-default" name="btn-reg" id="btn_reg" >
+ 					
+ 			</div>
+ 			<div class="alert alert-success" id="success" style="display:none">
+ 			</div>
+ 			<div class="alert alert-warning" id="error" style="display: none">
+ 			</div>
+ 		</form>
+ 	</div>
+ </body>
+
+ <script>
+
+ var email_valid=false;
+ var password_valid=false;
+ var password_match=false;
+ var number_valid=false;
+
+ var email=$("#user_email");
+ var successmsg=$("#success");
+ var failmsg=$("#error");
+ var number=$("#number");
+ var password=$("#password");
+ var repeat=$("#password_repeat");
+ var submit=$("#btn_reg");
+
+
+ function isEmail(email) {
+ 	var re = /\S+@\S+\.\S+/;
+
+ }
+
+ function emailExist(){
+ 	return false;
+ }
+
+ function show_error_message(message){
+ 	successmsg.hide()
+ 	failmsg.html(message);
+ 	failmsg.show();
+ }
+
+ function show_success_message(message){
+ 	failmsg.hide();
+ 	successmsg.html(message);
+ 	successmsg.show()
+ }
+
+ function checkEmail(){
+ 	if(!isEmail(email.val())){
+ 		show_error_message("Invalid email address");
+ 		email_valid=false;
+ 	}else if(emailExist()){
+ 		email_valid=false;
+ 	}else{
+ 		show_success_message("OK")
+ 		email_valid=true;
+ 	}
+ 	checkSubmitButton();
+ }
+
+
+ function checkPassword(){
+ 	if(repeat.val()!= password.val()){
+ 		show_error_message("Password does not match the confirm password");
+ 		password_valid= false;
+ 	}else if(password.val()== ""){
+		show_error_message("Password should not be empty");
+ 		password_valid= false;
+ 	}else{
+ 		show_success_message("OK");
+ 		password_valid= true;
+ 	}
+ 	checkSubmitButton();
+ }
+
+ function checkNumber(){
+ 	if(isNaN(number.val())){
+ 		show_error_message("You must enter a number");
+ 		number_valid= false;
+ 	}else{
+ 		show_success_message("OK");
+ 		number_valid= true;
+ 	}
+ 	checkSubmitButton();
+ }
+
+
+
+ $(document).ready(
+ 	function(){
+ 	email.keyup(checkEmail);
+ 	//focusout()
+ 	password.keyup(checkPassword);
+ 	repeat.keyup(checkPassword);
+ 	number.keyup(checkNumber);
+
+ }
+
+
+ );
+
+
+ </script>
+</html>
